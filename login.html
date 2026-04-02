@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUNSTORE - Cổng Truy Cập</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="login-layout-wrapper">
+        <div class="login-grid fade-in-tactical">
+            
+            <aside class="login-promo-left">
+                <div class="login-banner-shell">
+                    <img src="banner-home.svg" class="video-hero" alt="Banner GUNSTORE">
+                </div>
+
+                <div class="project-info-stack">
+                    <div class="project-info-box project-topic-card">
+                        <span class="project-info-label">Đề tài</span>
+                        <p class="project-title-text">HỆ THỐNG CỬA HÀNG VŨ KHÍ TỰ VỆ</p>
+                    </div>
+
+                    <div class="project-info-box project-team-card">
+                        <span class="project-info-label">Nhóm thực hiện</span>
+                        <p class="team-group-name">NHÓM 2K6</p>
+                        <ul class="member-list-items">
+                            <li>Nguyễn Doãn Huy</li>
+                            <li>Nguyễn Trần Tuấn Khôi</li>
+                            <li>Đỗ Văn Đạt</li>
+                            <li>Đỗ Đặng Việt Hoàng</li>
+                            <li>Trần Nguyễn Lam Huy</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="login-promo-cards">
+                    <article class="login-promo-card">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                        <div class="login-promo-card-text">
+                            <strong>Hoả Lực Mạnh Mẽ</strong>
+                            <span>Giúp Bạn Áp Đảo Nỗi Sợ</span>
+                        </div>
+                    </article>
+                    <article class="login-promo-card">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <div class="login-promo-card-text">
+                            <strong>Súng Chuẩn Và Xịn</strong>
+                            <span>Không Lo Về Kẹt Đạn</span>
+                        </div>
+                    </article>
+                    <article class="login-promo-card">
+                        <i class="fa-solid fa-handshake-angle"></i>
+                        <div class="login-promo-card-text">
+                            <strong>Cam Kết Bảo Hành</strong>
+                            <span>Uy Tín Của Thương Nhân</span>
+                        </div>
+                    </article>
+                </div>
+            </aside>
+
+            <section class="login-form-side">
+                <div class="login-form-box">
+                    
+                    <div class="styled-title-block">
+                        <h1 class="title">ĐĂNG NHẬP GUN STORE</h1>
+                    </div>
+                    <p class="login-desc-text">Nhập thông tin để truy cập vào hệ thống điều hành.</p>
+                    
+                    <div class="auth-feedback info" id="authFeedback">Điền thông tin phù hợp để tiếp tục thao tác.</div>
+
+                    <div id="login-form" class="auth-form-container">
+                        <form class="login-form" onsubmit="return login(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="email">Tên đăng nhập / Email</label>
+                                <input type="text" class="form-input" id="email" placeholder="VD: admin@gunstore.com..." required autocomplete="username">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="password">Mật khẩu</label>
+                                <input type="password" class="form-input" id="password" placeholder="••••••••" required autocomplete="current-password">
+                                <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('password', 'passwordToggleIcon1')"><i class="fa-solid fa-eye" id="passwordToggleIcon1"></i></button>
+                            </div>
+
+                            <div class="form-meta">
+                                <label class="remember-checkbox">
+                                    <input type="checkbox"> Ghi nhớ phiên
+                                </label>
+                                <a onclick="toggleForm('forgot-form')" class="forgot-pass">Quên mật khẩu?</a>
+                            </div>
+
+                            <button type="submit" class="login-btn">ĐĂNG NHẬP NGAY</button>
+
+                            <div class="login-footer">
+                                <span>Chưa có tài khoản? <a onclick="toggleForm('register-form')">Đăng ký ngay!</a></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="register-form" class="auth-form-container hide-menu">
+                        <form class="login-form" onsubmit="return register(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="reg-name">Tên hiển thị (Nickname)</label>
+                                <input type="text" class="form-input" id="reg-name" placeholder="Ví dụ: khach123" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="reg-email">Email liên hệ</label>
+                                <input type="email" class="form-input" id="reg-email" placeholder="Email của bạn..." required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="reg-password">Mật khẩu</label>
+                                <input type="password" class="form-input" id="reg-password" placeholder="••••••••" required>
+                                <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('reg-password', 'passwordToggleIcon2')"><i class="fa-solid fa-eye" id="passwordToggleIcon2"></i></button>
+                            </div>
+
+                            <button type="submit" class="login-btn" style="background: linear-gradient(135deg, rgb(34, 197, 94), rgb(22, 163, 74));">TẠO TÀI KHOẢN</button>
+                            
+                            <div class="login-footer">
+                                <a onclick="toggleForm('login-form')"><i class="fa-solid fa-arrow-left"></i> Trở lại trạm đăng nhập</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="forgot-form" class="auth-form-container hide-menu">
+                        <form class="login-form" onsubmit="return handleForgotPass(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="forgot-email">Email đã đăng ký</label>
+                                <input type="email" class="form-input" id="forgot-email" placeholder="Nhập email của bạn..." required>
+                            </div>
+
+                            <div id="forgotResultBox" class="hide-menu" style="background: rgba(34, 197, 94, 0.1); border: 1px solid rgb(34, 197, 94); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 15px;">
+                                <p style="color: rgb(22, 163, 74); font-weight: 800; margin-bottom: 5px;">Hệ thống đã định vị tài khoản!</p>
+                                <p style="color: rgb(15, 23, 42); font-size: 14px; font-weight: 800;">Mật khẩu của bạn là: <strong id="recoveredPassword" style="color: rgb(37, 99, 235); font-size: 18px;"></strong></p>
+                            </div>
+
+                            <button type="submit" class="login-btn" style="background: linear-gradient(135deg, rgb(245, 158, 11), rgb(217, 119, 6));">TÌM LẠI MẬT KHẨU</button>
+                            
+                            <div class="login-footer">
+                                <a onclick="toggleForm('login-form')"><i class="fa-solid fa-arrow-left"></i> Trở lại trạm đăng nhập</a>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+            
+        </div>
+    </main>
+
+    <script src="database.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>
